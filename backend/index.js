@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const fs = require('fs');
+const pinataSDK = require('@pinata/sdk');
 
 const app = express();
 app.use(cors());
@@ -10,30 +12,26 @@ app.use(express.json());
 // Setup Multer for file uploads
 const upload = multer({ dest: 'uploads/' });
 
+const pinata = new pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_API_KEY);
+
 // POST /api/upload
-// Simulates uploading a document to IPFS and returning the hash
+// Uploads a document to IPFS via Pinata and returns the hash
 app.post('/api/upload', upload.single('file'), async (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ success: false, error: 'No file uploaded' });
         }
 
-        // In a production environment, you would use Pinata or Web3.Storage here:
-        // const pinata = new pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_API_KEY);
-        // const readableStreamForFile = fs.createReadStream(req.file.path);
-        // const result = await pinata.pinFileToIPFS(readableStreamForFile);
-        // const ipfsHash = result.IpfsHash;
-
-        // Mocking IPFS Hash generation for this implementation
-        const mockIpfsHash = 'Qm' + 
-            Math.random().toString(36).substring(2, 15) + 
-            Math.random().toString(36).substring(2, 15);
+        const readableStreamForFile = fs.createReadStream(req.file.path);
+        const result = await pinata.pinFileToIPFS(readableStreamForFile);
+        const ipfsHash = result.IpfsHash;
         
         // Clean up the temporary file
         fs.unlinkSync(req.file.path);
         
-        res.json({ success: true, ipfsHash: mockIpfsHash, message: "File securely uploaded to IPFS" });
+        res.json({ success: true, ipfsHash, message: "File securely uploaded to IPFS" });
     } catch (error) {
+        if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
         res.status(500).json({ success: false, error: error.message });
     }
 });

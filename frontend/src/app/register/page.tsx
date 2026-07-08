@@ -41,7 +41,7 @@ export default function RegisterAsset() {
       });
       const resJson = await res.json();
       
-      if (!resJson.success) throw new Error("IPFS upload failed");
+      if (!resJson.success) throw new Error(resJson.error || "IPFS upload failed");
       const ipfsHash = resJson.ipfsHash;
 
       // Ensure Freighter is connected and get the public key to use as owner

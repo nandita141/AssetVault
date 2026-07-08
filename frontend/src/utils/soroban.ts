@@ -1,11 +1,11 @@
-import { SorobanRpc, TransactionBuilder, Networks, Contract, Address, nativeToScVal } from '@stellar/stellar-sdk';
+import { rpc, TransactionBuilder, Networks, Contract, Address, nativeToScVal } from '@stellar/stellar-sdk';
 import { signTransaction, getAddress } from '@stellar/freighter-api';
 
 const SERVER_URL = 'https://soroban-testnet.stellar.org';
 const NETWORK_PASSPHRASE = Networks.TESTNET;
 export const CONTRACT_ID = 'CCD5G67T42N5VLGYTJH5KNMRCYE2C2M42A5R6X6WM4KVXOZWFUWRZV3X';
 
-export const server = new SorobanRpc.Server(SERVER_URL);
+export const server = new rpc.Server(SERVER_URL);
 
 export async function submitContractCall(method: string, args: any[]) {
     // 1. Get user's wallet address
@@ -46,13 +46,25 @@ export async function submitContractCall(method: string, args: any[]) {
     // 5. Sign with Freighter
     let signedXdr;
     try {
-        signedXdr = await signTransaction(preparedTx.toXDR(), { network: "TESTNET" });
+        const xdrString = preparedTx.toXDR();
+        console.log("Requesting signature for XDR:", xdrString);
+        signedXdr = await signTransaction(xdrString, { 
+            network: "TESTNET", 
+            networkPassphrase: NETWORK_PASSPHRASE 
+        });
+        console.log("Freighter Response:", signedXdr);
     } catch (e) {
         throw new Error("User rejected the transaction signature");
     }
     
+    if (signedXdr && typeof signedXdr === 'object' && (signedXdr as any).error) {
+        throw new Error(`Freighter Error: ${(signedXdr as any).error}`);
+    }
+
     const xdrString = typeof signedXdr === 'string' ? signedXdr : (signedXdr as any)?.signedTxXdr;
-    if (!xdrString) throw new Error("Failed to get signed XDR from Freighter");
+    if (!xdrString) {
+        throw new Error(`Failed to get signed XDR from Freighter. Received: ${JSON.stringify(signedXdr)}`);
+    }
 
     // 6. Submit to Network
     const signedTx = TransactionBuilder.fromXDR(xdrString, NETWORK_PASSPHRASE);

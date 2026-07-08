@@ -23,7 +23,12 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
         }
 
         const readableStreamForFile = fs.createReadStream(req.file.path);
-        const result = await pinata.pinFileToIPFS(readableStreamForFile);
+        const options = {
+            pinataMetadata: {
+                name: req.file.originalname || "asset_document",
+            }
+        };
+        const result = await pinata.pinFileToIPFS(readableStreamForFile, options);
         const ipfsHash = result.IpfsHash;
         
         // Clean up the temporary file

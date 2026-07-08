@@ -160,7 +160,6 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-      </div>
 
       {/* Transfer Modal overlay */}
       {transferAsset && (

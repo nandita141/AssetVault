@@ -8,6 +8,11 @@ export default function Dashboard() {
   const [walletConnected, setWalletConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
   
+  // Transfer Modal State
+  const [transferAsset, setTransferAsset] = useState<any>(null);
+  const [recipient, setRecipient] = useState('');
+  const [isTransferring, setIsTransferring] = useState(false);
+  
   // Mock Data
   const [assets] = useState([
     {
@@ -150,11 +155,61 @@ export default function Dashboard() {
               <Link href={`/verify/${asset.id}`}>
                 <button className="btn btn-outline">View Passport</button>
               </Link>
-              <button className="btn btn-outline">Transfer</button>
+              <button className="btn btn-outline" onClick={() => setTransferAsset(asset)}>Transfer</button>
             </div>
           </div>
         ))}
       </div>
+      </div>
+
+      {/* Transfer Modal overlay */}
+      {transferAsset && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, backdropFilter: 'blur(5px)' }}>
+          <div className="card glass-panel animate-fade-in" style={{ width: '100%', maxWidth: '500px', padding: '2.5rem' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Transfer Asset</h3>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
+              Transferring <strong style={{ color: 'var(--text-main)' }}>{transferAsset.name}</strong> ({transferAsset.id})
+            </p>
+            
+            <div style={{ marginBottom: '2rem' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>RECIPIENT PUBLIC KEY (STELLAR)</label>
+              <input 
+                type="text" 
+                value={recipient}
+                onChange={(e) => setRecipient(e.target.value)}
+                placeholder="G..."
+                style={{ width: '100%', padding: '1rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', fontFamily: 'monospace', fontSize: '1.1rem' }}
+              />
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+              <button 
+                className="btn btn-outline" 
+                onClick={() => { setTransferAsset(null); setRecipient(''); }}
+                disabled={isTransferring}
+              >
+                Cancel
+              </button>
+              <button 
+                className="btn btn-primary" 
+                disabled={!recipient || isTransferring}
+                onClick={() => {
+                  setIsTransferring(true);
+                  // Simulate contract call
+                  setTimeout(() => {
+                    setIsTransferring(false);
+                    setTransferAsset(null);
+                    setRecipient('');
+                    alert("Transfer transaction signed & submitted!");
+                  }, 2000);
+                }}
+              >
+                {isTransferring ? 'Signing...' : 'Confirm Transfer'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

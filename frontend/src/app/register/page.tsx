@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { submitContractCall } from '@/utils/soroban';
+import { nativeToScVal } from '@stellar/stellar-sdk';
 
 export default function RegisterAsset() {
   const router = useRouter();
@@ -42,17 +44,35 @@ export default function RegisterAsset() {
       if (!resJson.success) throw new Error("IPFS upload failed");
       const ipfsHash = resJson.ipfsHash;
 
+      // Ensure Freighter is connected and get the public key to use as owner
+      const { getAddress } = await import('@stellar/freighter-api');
+      const addressObj = await getAddress();
+      const ownerAddress = typeof addressObj === 'string' ? addressObj : (addressObj as any).address;
+      if (!ownerAddress) throw new Error("Wallet not connected");
+
       setStatus('Requesting signature from Freighter wallet...');
-      await new Promise(r => setTimeout(r, 2000)); 
+      
+      // Generate unique asset ID for the contract
+      const assetId = `ASSET-${Date.now()}`;
+      
+      // Convert arguments to SCVal
+      const args = [
+        nativeToScVal(assetId, { type: 'string' }),
+        nativeToScVal(ownerAddress, { type: 'address' }),
+        nativeToScVal(Math.floor(new Date(formData.purchaseDate).getTime() / 1000), { type: 'u64' }),
+        nativeToScVal(Number(formData.purchasePrice), { type: 'u64' }),
+        nativeToScVal(ipfsHash, { type: 'string' })
+      ];
 
-      setStatus('Registering on Stellar Blockchain...');
-      await new Promise(r => setTimeout(r, 1500)); 
+      // Submit to Soroban Smart Contract
+      setStatus('Registering on Stellar Blockchain (may take a few seconds)...');
+      await submitContractCall('register_asset', args);
 
-      alert(`Asset registered successfully! IPFS Hash: ${ipfsHash}`);
+      alert(`Asset registered successfully on the blockchain! IPFS Hash: ${ipfsHash}`);
       router.push('/');
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert("Registration failed");
+      alert(`Registration failed: ${error.message || error}`);
     } finally {
       setIsSubmitting(false);
       setStatus('');

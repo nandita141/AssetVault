@@ -192,18 +192,38 @@ export default function Dashboard() {
               <button 
                 className="btn btn-primary" 
                 disabled={!recipient || isTransferring}
-                onClick={() => {
+                onClick={async () => {
                   setIsTransferring(true);
-                  // Simulate contract call
-                  setTimeout(() => {
-                    setIsTransferring(false);
+                  try {
+                    const { submitContractCall } = await import('@/utils/soroban');
+                    const { nativeToScVal } = await import('@stellar/stellar-sdk');
+                    const { getAddress } = await import('@stellar/freighter-api');
+                    
+                    const addressObj = await getAddress();
+                    const currentOwner = typeof addressObj === 'string' ? addressObj : (addressObj as any).address;
+
+                    const args = [
+                      nativeToScVal(transferAsset.id, { type: 'string' }),
+                      nativeToScVal(currentOwner, { type: 'address' }),
+                      nativeToScVal(recipient, { type: 'address' }),
+                      nativeToScVal(Math.floor(Date.now() / 1000), { type: 'u64' }), // current date
+                      nativeToScVal(transferAsset.currentValue || transferAsset.purchasePrice, { type: 'u64' })
+                    ];
+
+                    await submitContractCall('transfer_ownership', args);
+                    
+                    alert("Transfer transaction signed & submitted successfully to the blockchain!");
                     setTransferAsset(null);
                     setRecipient('');
-                    alert("Transfer transaction signed & submitted!");
-                  }, 2000);
+                  } catch (error: any) {
+                    console.error(error);
+                    alert(`Transfer failed: ${error.message || error}`);
+                  } finally {
+                    setIsTransferring(false);
+                  }
                 }}
               >
-                {isTransferring ? 'Signing...' : 'Confirm Transfer'}
+                {isTransferring ? 'Signing on Blockchain...' : 'Confirm Transfer'}
               </button>
             </div>
           </div>

@@ -49,7 +49,6 @@ export async function submitContractCall(method: string, args: any[]) {
         const xdrString = preparedTx.toXDR();
         console.log("Requesting signature for XDR:", xdrString);
         signedXdr = await signTransaction(xdrString, { 
-            network: "TESTNET", 
             networkPassphrase: NETWORK_PASSPHRASE 
         });
         console.log("Freighter Response:", signedXdr);

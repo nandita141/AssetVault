@@ -13,6 +13,9 @@ export default function RegisterAsset() {
     type: 'Property',
     purchasePrice: '',
     purchaseDate: '',
+    state: 'maharashtra',
+    areaType: 'metro',
+    areaSqFt: '1000'
   });
   const [file, setFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,7 +71,25 @@ export default function RegisterAsset() {
       setStatus('Registering on Stellar Blockchain (may take a few seconds)...');
       await submitContractCall('register_asset', args);
 
-      alert(`Asset registered successfully on the blockchain! IPFS Hash: ${ipfsHash}`);
+      // Save to Backend Database for Dynamic Dashboard
+      setStatus('Saving to off-chain indexer...');
+      await fetch('http://localhost:5000/api/assets', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: assetId,
+          name: formData.name,
+          type: formData.type,
+          purchasePrice: formData.purchasePrice,
+          locationDetails: formData.type === 'Property' ? {
+            state: formData.state,
+            areaType: formData.areaType,
+            areaSqFt: Number(formData.areaSqFt)
+          } : null
+        })
+      });
+
+      alert(`Asset registered successfully! IPFS Hash: ${ipfsHash}`);
       router.push('/');
     } catch (error: any) {
       console.error(error);
@@ -117,6 +138,44 @@ export default function RegisterAsset() {
               <option value="Vehicle">Vehicle</option>
             </select>
           </div>
+
+          {formData.type === 'Property' && (
+            <div className="form-group" style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <h4 style={{ marginBottom: '1rem', color: 'var(--text-muted)' }}>Location & Valuation Details</h4>
+              <div className="grid grid-cols-2" style={{ gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label className="form-label">State</label>
+                  <select name="state" className="form-control" value={formData.state} onChange={handleInputChange}>
+                    <option value="maharashtra">Maharashtra</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="karnataka">Karnataka</option>
+                    <option value="gujarat">Gujarat</option>
+                    <option value="uttar pradesh">Uttar Pradesh</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="form-label">Area Type</label>
+                  <select name="areaType" className="form-control" value={formData.areaType} onChange={handleInputChange}>
+                    <option value="metro">Metro City</option>
+                    <option value="city">Normal City</option>
+                    <option value="town">Town</option>
+                    <option value="village">Village</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="form-label">Total Area (Sq. Ft.)</label>
+                <input 
+                  type="number" 
+                  name="areaSqFt"
+                  className="form-control" 
+                  value={formData.areaSqFt}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            </div>
+          )}
 
           <div className="grid grid-cols-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
             <div>

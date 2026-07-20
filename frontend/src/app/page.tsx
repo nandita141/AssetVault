@@ -12,30 +12,48 @@ export default function Dashboard() {
   const [transferAsset, setTransferAsset] = useState<any>(null);
   const [recipient, setRecipient] = useState('');
   const [isTransferring, setIsTransferring] = useState(false);
-  
-  // Mock Data
-  const [assets] = useState([
-    {
-      id: 'LAND-0001',
-      name: 'Plot in Bandra, Mumbai',
-      type: 'Property',
-      purchasePrice: 1800000,
-      currentValue: 2600000,
-      status: 'Verified',
-    },
-    {
-      id: 'GOLD-0001',
-      name: '24K Gold Coins (50g)',
-      type: 'Gold',
-      purchasePrice: 200000,
-      currentValue: 345000,
-      status: 'Verified',
-    }
-  ]);
+  // Offers Modal State
+  const [offersAsset, setOffersAsset] = useState<any>(null);
+  const [offersList, setOffersList] = useState<any[]>([]);
+  const [isOffersLoading, setIsOffersLoading] = useState(false);
+
+  // Mock Data (Base Purchase Details)
+  const [assets, setAssets] = useState<any[]>([]);
 
   useEffect(() => {
     checkWalletConnection();
+    fetchLiveMarketData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const fetchLiveMarketData = async () => {
+    try {
+      const assetsRes = await fetch('http://localhost:5000/api/assets');
+      const assetsData = await assetsRes.json();
+      const currentAssets = assetsData.success ? assetsData.assets : [];
+
+      const updatedAssets = await Promise.all(currentAssets.map(async (asset: any) => {
+        if (asset.type === 'Gold') {
+          const res = await fetch('http://localhost:5000/api/market/gold');
+          const data = await res.json();
+          if (data.success) {
+            return { ...asset, currentValue: data.currentPrice * 5 };
+          }
+        } else if (asset.type === 'Property') {
+          const loc = asset.locationDetails || { state: 'maharashtra', areaType: 'metro', areaSqFt: 1000 };
+          const res = await fetch(`http://localhost:5000/api/market/property?state=${loc.state}&areaType=${loc.areaType}&areaSqFt=${loc.areaSqFt}`);
+          const data = await res.json();
+          if (data.success) {
+            return { ...asset, currentValue: data.currentPrice };
+          }
+        }
+        return asset;
+      }));
+      setAssets(updatedAssets);
+    } catch (e) {
+      console.error("Failed to fetch live market data", e);
+    }
+  };
 
   const checkWalletConnection = async () => {
     try {
@@ -81,6 +99,55 @@ export default function Dashboard() {
     return `${addr.substring(0, 5)}...${addr.substring(addr.length - 4)}`;
   }
 
+  const simulateOffer = async (asset: any) => {
+    try {
+      // Create a random realistic offer price (+- 20% of current value)
+      const variance = (Math.random() * 0.4 - 0.2); 
+      const offerPrice = Math.round(asset.currentValue * (1 + variance));
+      
+      const { Keypair } = await import('@stellar/stellar-sdk');
+      const buyerAddress = Keypair.random().publicKey();
+      
+      const res = await fetch('http://localhost:5000/api/offers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ assetId: asset.id, buyerAddress, offerPrice })
+      });
+      if (res.ok) alert(`Simulated offer added for ${formatCurrency(offerPrice)}`);
+    } catch (e) {
+      console.error(e);
+      alert('Failed to simulate offer');
+    }
+  };
+
+  const fetchOffers = async (asset: any) => {
+    setOffersAsset(asset);
+    setIsOffersLoading(true);
+    setOffersList([]);
+    try {
+      const res = await fetch(`http://localhost:5000/api/offers/${asset.id}`);
+      const data = await res.json();
+      
+      // Evaluate each offer against current market value
+      if (data.success && data.offers.length > 0) {
+        const evaluatedOffers = await Promise.all(data.offers.map(async (offer: any) => {
+          const evalRes = await fetch('http://localhost:5000/api/evaluate-deal', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ offerPrice: offer.offerPrice, currentMarketValue: asset.currentValue })
+          });
+          const evalData = await evalRes.json();
+          return { ...offer, evaluation: evalData };
+        }));
+        setOffersList(evaluatedOffers);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsOffersLoading(false);
+    }
+  };
+
   if (!walletConnected) {
     return (
       <main className="container grid" style={{ placeItems: 'center', minHeight: '100vh' }}>
@@ -94,6 +161,12 @@ export default function Dashboard() {
       </main>
     );
   }
+
+  const totalPurchaseValue = assets.reduce((acc, asset) => acc + asset.purchasePrice, 0);
+  const totalMarketValue = assets.reduce((acc, asset) => acc + asset.currentValue, 0);
+  const totalProfit = totalMarketValue - totalPurchaseValue;
+  const totalProfitPercent = totalPurchaseValue > 0 ? ((totalProfit / totalPurchaseValue) * 100).toFixed(2) : '0.00';
+  const isProfit = totalProfit >= 0;
 
   return (
     <div className="container" style={{ paddingBottom: '4rem' }}>
@@ -117,13 +190,13 @@ export default function Dashboard() {
       <div className="grid grid-cols-2 animate-fade-in stagger-3" style={{ marginBottom: '4rem' }}>
         <div className="card glass-panel">
           <div className="card-title">Total Portfolio Value (Purchase)</div>
-          <div className="card-value">{formatCurrency(2000000)}</div>
+          <div className="card-value">{formatCurrency(totalPurchaseValue)}</div>
         </div>
-        <div className="card glass-panel" style={{ border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+        <div className="card glass-panel" style={{ border: `1px solid ${isProfit ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}` }}>
           <div className="card-title">Current Market Value</div>
-          <div className="card-value" style={{ color: 'var(--success)' }}>{formatCurrency(2945000)}</div>
-          <div style={{ color: 'var(--success)', marginTop: '0.75rem', fontSize: '0.95rem', fontWeight: 500 }}>
-            ↑ +47.25% Profit (Live Data)
+          <div className="card-value" style={{ color: isProfit ? 'var(--success)' : 'var(--danger)' }}>{formatCurrency(totalMarketValue)}</div>
+          <div style={{ color: isProfit ? 'var(--success)' : 'var(--danger)', marginTop: '0.75rem', fontSize: '0.95rem', fontWeight: 500 }}>
+            {isProfit ? '↑' : '↓'} {isProfit ? '+' : ''}{totalProfitPercent}% {isProfit ? 'Profit' : 'Loss'} (Live Data)
           </div>
         </div>
       </div>
@@ -152,10 +225,11 @@ export default function Dashboard() {
             </div>
 
             <div style={{ display: 'flex', gap: '0.75rem', flex: 1, justifyContent: 'flex-end' }}>
+              <button className="btn btn-outline" onClick={() => simulateOffer(asset)}>Simulate Offer</button>
+              <button className="btn btn-primary" onClick={() => fetchOffers(asset)}>View Offers</button>
               <Link href={`/verify/${asset.id}`}>
                 <button className="btn btn-outline">View Passport</button>
               </Link>
-              <button className="btn btn-outline" onClick={() => setTransferAsset(asset)}>Transfer</button>
             </div>
           </div>
         ))}
@@ -226,6 +300,98 @@ export default function Dashboard() {
                 {isTransferring ? 'Signing on Blockchain...' : 'Confirm Transfer'}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Offers Modal overlay */}
+      {offersAsset && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, backdropFilter: 'blur(5px)' }}>
+          <div className="card glass-panel animate-fade-in" style={{ width: '100%', maxWidth: '700px', padding: '2.5rem', maxHeight: '90vh', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ fontSize: '1.5rem', margin: 0 }}>Offers for {offersAsset.name}</h3>
+              <button className="btn btn-outline" onClick={() => setOffersAsset(null)}>Close</button>
+            </div>
+            
+            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
+              Current Market Value: <strong style={{ color: 'var(--success)' }}>{formatCurrency(offersAsset.currentValue)}</strong>
+            </p>
+            
+            {isOffersLoading ? (
+              <p>Loading offers...</p>
+            ) : offersList.length === 0 ? (
+              <p style={{ color: 'var(--text-muted)' }}>No offers received yet.</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {offersList.map(offer => (
+                  <div key={offer.id} style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                      <div>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.25rem' }}>
+                          {formatCurrency(offer.offerPrice)}
+                        </div>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>
+                          Buyer: {displayAddress(offer.buyerAddress)}
+                        </div>
+                      </div>
+                      
+                      {offer.evaluation && (
+                        <div style={{ textAlign: 'right' }}>
+                          <span className={`badge ${offer.evaluation.status === 'UNDERPRICED' ? 'badge-danger' : offer.evaluation.status === 'OVERPRICED' ? 'badge-success' : 'badge-primary'}`} style={{ marginBottom: '0.5rem', display: 'inline-block' }}>
+                            {offer.evaluation.status.replace('_', ' ')}
+                          </span>
+                          <div style={{ fontSize: '0.85rem', color: offer.evaluation.status === 'UNDERPRICED' ? 'var(--danger)' : 'var(--text-muted)' }}>
+                            {offer.evaluation.recommendation}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <button 
+                      className="btn btn-primary" 
+                      style={{ width: '100%' }}
+                      disabled={isTransferring}
+                      onClick={async () => {
+                        setIsTransferring(true);
+                        try {
+                          const { submitContractCall } = await import('@/utils/soroban');
+                          const { nativeToScVal } = await import('@stellar/stellar-sdk');
+                          const { getAddress } = await import('@stellar/freighter-api');
+                          
+                          const addressObj = await getAddress();
+                          const currentOwner = typeof addressObj === 'string' ? addressObj : (addressObj as any).address;
+                          
+                          const args = [
+                            nativeToScVal(offersAsset.id, { type: 'string' }),
+                            nativeToScVal(currentOwner, { type: 'address' }),
+                            nativeToScVal(offer.buyerAddress, { type: 'address' }),
+                            nativeToScVal(Math.floor(Date.now() / 1000), { type: 'u64' }),
+                            nativeToScVal(offer.offerPrice, { type: 'u64' })
+                          ];
+                          
+                          if (offersAsset.id === 'LAND-0001' || offersAsset.id === 'GOLD-0001') {
+                            // Bypass blockchain for mock assets
+                            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate delay
+                            alert("Demo Mode: Offer accepted! (Mock asset bypassed blockchain transfer)");
+                          } else {
+                            await submitContractCall('transfer_ownership', args);
+                            alert("Offer accepted! Transaction submitted successfully to the blockchain!");
+                          }
+                          setOffersAsset(null);
+                        } catch (error: any) {
+                          console.error(error);
+                          alert(`Transfer failed: ${error.message || error}`);
+                        } finally {
+                          setIsTransferring(false);
+                        }
+                      }}
+                    >
+                      {isTransferring ? 'Signing on Blockchain...' : 'Accept Offer & Transfer Asset'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

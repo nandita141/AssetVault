@@ -38,7 +38,8 @@ export default function RegisterAsset() {
       const uploadData = new FormData();
       uploadData.append('file', file);
       
-      const res = await fetch('http://localhost:5000/api/upload', {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${API_URL}/api/upload`, {
         method: 'POST',
         body: uploadData,
       });
@@ -73,7 +74,7 @@ export default function RegisterAsset() {
 
       // Save to Backend Database for Dynamic Dashboard
       setStatus('Saving to off-chain indexer...');
-      await fetch('http://localhost:5000/api/assets', {
+      await fetch(`${API_URL}/api/assets`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

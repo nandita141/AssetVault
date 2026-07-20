@@ -20,6 +20,9 @@ export default function Dashboard() {
   // Mock Data (Base Purchase Details)
   const [assets, setAssets] = useState<any[]>([]);
 
+  // Define API URL dynamically
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
   useEffect(() => {
     checkWalletConnection();
     fetchLiveMarketData();
@@ -28,20 +31,20 @@ export default function Dashboard() {
 
   const fetchLiveMarketData = async () => {
     try {
-      const assetsRes = await fetch('http://localhost:5000/api/assets');
+      const assetsRes = await fetch(`${API_URL}/api/assets`);
       const assetsData = await assetsRes.json();
       const currentAssets = assetsData.success ? assetsData.assets : [];
 
       const updatedAssets = await Promise.all(currentAssets.map(async (asset: any) => {
         if (asset.type === 'Gold') {
-          const res = await fetch('http://localhost:5000/api/market/gold');
+          const res = await fetch(`${API_URL}/api/market/gold`);
           const data = await res.json();
           if (data.success) {
             return { ...asset, currentValue: data.currentPrice * 5 };
           }
         } else if (asset.type === 'Property') {
           const loc = asset.locationDetails || { state: 'maharashtra', areaType: 'metro', areaSqFt: 1000 };
-          const res = await fetch(`http://localhost:5000/api/market/property?state=${loc.state}&areaType=${loc.areaType}&areaSqFt=${loc.areaSqFt}`);
+          const res = await fetch(`${API_URL}/api/market/property?state=${loc.state}&areaType=${loc.areaType}&areaSqFt=${loc.areaSqFt}`);
           const data = await res.json();
           if (data.success) {
             return { ...asset, currentValue: data.currentPrice };
@@ -108,7 +111,7 @@ export default function Dashboard() {
       const { Keypair } = await import('@stellar/stellar-sdk');
       const buyerAddress = Keypair.random().publicKey();
       
-      const res = await fetch('http://localhost:5000/api/offers', {
+      const res = await fetch(`${API_URL}/api/offers`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ assetId: asset.id, buyerAddress, offerPrice })
@@ -125,13 +128,13 @@ export default function Dashboard() {
     setIsOffersLoading(true);
     setOffersList([]);
     try {
-      const res = await fetch(`http://localhost:5000/api/offers/${asset.id}`);
+      const res = await fetch(`${API_URL}/api/offers/${asset.id}`);
       const data = await res.json();
       
       // Evaluate each offer against current market value
       if (data.success && data.offers.length > 0) {
         const evaluatedOffers = await Promise.all(data.offers.map(async (offer: any) => {
-          const evalRes = await fetch('http://localhost:5000/api/evaluate-deal', {
+          const evalRes = await fetch(`${API_URL}/api/evaluate-deal`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ offerPrice: offer.offerPrice, currentMarketValue: asset.currentValue })

@@ -45,5 +45,4 @@ cargo test
 ```
 
 ## Author
-**Nandita** - Individual Developer
-Developed for Level 4 MVP Submission.
+**Nandita**

@@ -44,5 +44,6 @@ cargo build
 cargo test
 ```
 
-## Team
+## Author
+**Nandita** - Individual Developer
 Developed for Level 4 MVP Submission.

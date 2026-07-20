@@ -57,7 +57,9 @@ jobs:
           targets: wasm32-unknown-unknown
       - name: Build Contracts
         working-directory: ./contracts
-        run: cargo build --target wasm32-unknown-unknown --release
+        run: |
+          rm -f Cargo.lock
+          cargo build --target wasm32-unknown-unknown --release
       - name: Run Tests
         working-directory: ./contracts
         run: cargo test

@@ -46,3 +46,49 @@ cargo test
 
 ## Author
 **Nandita**
+
+---
+
+## Level 4 MVP Submission Details
+
+> **Note to Evaluator:** The following sections contain the required deliverables for the MVP submission.
+
+### 🔗 Live Demo Link
+[Insert your Vercel/Netlify Live Demo Link Here]
+
+### 📜 Contract Deployment Address
+**Network:** Stellar Testnet
+**Contract Address:** `[Insert your Soroban Contract Address Here]`
+
+### 📸 Screenshots
+#### 1. Product UI
+![Product UI]([Insert Link or Path to Product UI Screenshot Here])
+
+#### 2. Mobile Responsive Design
+![Mobile Responsive]([Insert Link or Path to Mobile UI Screenshot Here])
+
+#### 3. Analytics or Monitoring Setup
+![Analytics Dashboard]([Insert Link or Path to Analytics Screenshot Here])
+
+### 🎥 Demo Video Link
+[Insert YouTube/Loom Demo Video Link Here]
+
+### 💼 Proof of 10+ User Wallet Interactions
+- [Insert Transaction Hash 1]
+- [Insert Transaction Hash 2]
+- [Insert Transaction Hash 3]
+- [Insert Transaction Hash 4]
+- [Insert Transaction Hash 5]
+- [Insert Transaction Hash 6]
+- [Insert Transaction Hash 7]
+- [Insert Transaction Hash 8]
+- [Insert Transaction Hash 9]
+- [Insert Transaction Hash 10]
+*(You can also link to a stellar.expert account page showing the transactions)*
+
+### 🗣️ Basic User Feedback Summary
+> "The asset registration process was very smooth and the real-time property valuation is an amazing feature!" - *User 1*
+> 
+> "Connecting the Freighter wallet was easy, but I'd love to see more analytics on the dashboard." - *User 2*
+>
+> *(Add your actual user feedback summary here!)*

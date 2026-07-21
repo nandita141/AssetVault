@@ -45,7 +45,7 @@ cargo test
 ```
 
 ## Author
-**AssetVault Team**
+**Nandita**
 
 ---
 

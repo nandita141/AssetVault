@@ -31,4 +31,5 @@ jobs:
           stellar contract deploy \
             --wasm target/wasm32v1-none/release/contracts.wasm \
             --source "${{ secrets.SOROBAN_SECRET_KEY }}" \
-            --network testnet
+            --network testnet \
+            --alias asset_vault

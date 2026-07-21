@@ -7,7 +7,7 @@ use soroban_sdk::{testutils::Address as _, Address, Env, String};
 #[test]
 fn test_register_and_transfer() {
     let env = Env::default();
-    let contract_id = env.register_contract(None, AssetVaultContract);
+    let contract_id = env.register(AssetVaultContract, ());
     let client = AssetVaultContractClient::new(&env, &contract_id);
 
     let owner1 = Address::generate(&env);

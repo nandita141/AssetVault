@@ -1,4 +1,4 @@
-name: AssetVault CI/CD
+name: AssetVault CI
 
 on:
   push:
@@ -22,6 +22,9 @@ jobs:
       - name: Install dependencies
         working-directory: ./frontend
         run: npm install
+      - name: Lint
+        working-directory: ./frontend
+        run: npm run lint
       - name: Build
         working-directory: ./frontend
         run: npm run build
@@ -43,3 +46,20 @@ jobs:
       - name: Install dependencies
         working-directory: ./backend
         run: npm install
+
+  # 3. Test & Build Contracts
+  contracts:
+    name: Test & Build Contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - name: Run Tests
+        working-directory: ./contracts
+        run: cargo test
+      - name: Build Contracts
+        working-directory: ./contracts
+        run: cargo build --target wasm32-unknown-unknown --release

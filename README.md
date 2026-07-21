@@ -94,3 +94,5 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 > "The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not." - *Taylor*
 >
 > "Fast and clean user interface, love the dynamic dashboard analytics!" - *Sam*
+
+*(Note: A complete list of 20+ user feedback reviews has been compiled in a separate document. Please view the [USER_FEEDBACK.md](./USER_FEEDBACK.md) file in this repository for the full feedback report).*

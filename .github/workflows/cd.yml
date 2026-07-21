@@ -1,8 +1,6 @@
 name: AssetVault CD
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_run:
     workflows: ["AssetVault CI"]
     types:
@@ -13,7 +11,7 @@ jobs:
   deploy-contracts:
     name: Deploy Contracts
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - name: Install Rust

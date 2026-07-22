@@ -73,7 +73,7 @@ cargo test
 *(Insert your Analytics screenshot here)*
 
 ### 🎥 Demo Video Link
-
+https://drive.google.com/file/d/1HEi2Ht01ttIho7VpA2I15057XXtLoymV/view?usp=drive_link
 
 ### 💼 Proof of 10+ User Wallet Interactions
 The following 10 unique wallet addresses have actively interacted with the AssetVault smart contract during testing and validation on the Stellar Testnet:

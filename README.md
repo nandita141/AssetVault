@@ -55,8 +55,7 @@ cargo test
 
 ### 🔗 Live Demo Link
 [https://asset-vault-lyart.vercel.app/](https://asset-vault-lyart.vercel.app/)
-<img width="695" height="663" alt="image" src="https://github.com/user-attachments/assets/70ab4874-e3d9-4c14-abda-4c8255d3dec8" />
-<img width="801" height="622" alt="image" src="https://github.com/user-attachments/assets/33730a4b-653f-49e9-8342-14b64956fe51" />
+
 
 ### 📜 Contract Deployment Address
 **Network:** Stellar Testnet
@@ -65,16 +64,16 @@ cargo test
 ### 📸 Screenshots
 #### 1. Product UI
 <img width="1482" height="718" alt="image" src="https://github.com/user-attachments/assets/8440e9bf-7e95-4790-a260-ebef64a996b6" />
-
+<img width="801" height="622" alt="image" src="https://github.com/user-attachments/assets/d60c33cd-2526-4c79-b818-91746dba8d01" />
+<img width="735" height="723" alt="image" src="https://github.com/user-attachments/assets/1cc80b11-4b78-4edb-a607-9d1c2770288b" />
 
 #### 2. Mobile Responsive Design
-*(Insert your mobile UI screenshot here)*
-
+<img width="383" height="588" alt="image" src="https://github.com/user-attachments/assets/856ef3dc-17a9-46d6-bf3d-d86e36eda12c" />
 #### 3. Analytics or Monitoring Setup
 *(Insert your Analytics screenshot here)*
 
 ### 🎥 Demo Video Link
-*(Insert your Demo video link here)*
+
 
 ### 💼 Proof of 10+ User Wallet Interactions
 The following 10 unique wallet addresses have actively interacted with the AssetVault smart contract during testing and validation on the Stellar Testnet:

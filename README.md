@@ -69,8 +69,14 @@ cargo test
 
 #### 2. Mobile Responsive Design
 <img width="383" height="588" alt="image" src="https://github.com/user-attachments/assets/856ef3dc-17a9-46d6-bf3d-d86e36eda12c" />
+
+
 #### 3. Analytics or Monitoring Setup
-*(Insert your Analytics screenshot here)*
+
+<img width="998" height="737" alt="image" src="https://github.com/user-attachments/assets/2c301324-c72a-49b3-8082-b6fb53b98537" />
+<img width="932" height="672" alt="image" src="https://github.com/user-attachments/assets/d85d084f-4fb4-44d4-8d23-d6bd3c2050ca" />
+
+
 
 ### 🎥 Demo Video Link
 https://drive.google.com/file/d/1HEi2Ht01ttIho7VpA2I15057XXtLoymV/view?usp=drive_link

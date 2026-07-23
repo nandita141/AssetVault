@@ -184,7 +184,9 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 | 3 | **Aditya Singh** | `GCA5...FOIM5` | *"The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not."* |
 | 4 | **Arjun Reddy** | `GB2D...LJFH` | *"Fast and clean user interface, love the dynamic dashboard analytics!"* |
 
-> 📄 **Full Report:** A complete list of **20+ user feedback reviews** is available in [USER_FEEDBACK.md](./USER_FEEDBACK.md).
+> 📄 **Full Report:** A complete list of **20+ user feedback reviews** is available in
+> 
+> https://docs.google.com/spreadsheets/d/1QKfwiiCPcvxVQ3XlejyyeDBrDcL0OSGe/edit?usp=sharing&ouid=101224133154138509879&rtpof=true&sd=true
 
 ---
 
@@ -194,6 +196,6 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 
 **Nandita Sahu**
 
-*Built with ❤️ on Stellar Soroban*
+
 
 </div>

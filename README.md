@@ -118,7 +118,7 @@ cargo test
 | Resource | Link |
 |---|---|
 | **Live App** | [https://asset-vault-mocha.vercel.app/](https://asset-vault-mocha.vercel.app/) |
-| **Demo Video** | [Watch on Google Drive](https://drive.google.com/file/d/1HEi2Ht01ttIho7VpA2I15057XXtLoymV/view?usp=drive_link) |
+| **Demo Video** |https://drive.google.com/file/d/1rn2tqjGIhc_Fa2gKas1EAwo_qQMDOzBj/view?usp=sharing |
 
 ### 📜 Smart Contract Deployment
 

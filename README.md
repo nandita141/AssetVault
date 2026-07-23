@@ -5,17 +5,6 @@
 <p><strong>Decentralized Physical Asset Tokenization on Stellar Soroban</strong></p>
 
 <p>
-  <a href="https://asset-vault-mocha.vercel.app/">
-    <img src="https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Demo" />
-  </a>
-  <a href="https://stellar.org/soroban">
-    <img src="https://img.shields.io/badge/Blockchain-Stellar%20Soroban-blue?style=for-the-badge&logo=stellar" alt="Stellar Soroban" />
-  </a>
-  <img src="https://img.shields.io/badge/Network-Testnet-yellow?style=for-the-badge" alt="Testnet" />
-  <img src="https://img.shields.io/badge/Status-MVP%20Live-brightgreen?style=for-the-badge" alt="Status" />
-</p>
-
-<p>
   AssetVault is a decentralized physical asset tokenization and verification platform built on the <strong>Stellar blockchain (Soroban)</strong>.<br/>
   Register real-world assets — Real Estate, Gold, and more — securely on-chain and manage ownership with cryptographic proof.
 </p>

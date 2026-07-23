@@ -192,7 +192,7 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 
 ## Author
 
-<div align="center">
+<div align="left">
 
 **Nandita Sahu**
 

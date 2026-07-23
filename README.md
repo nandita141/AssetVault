@@ -77,24 +77,27 @@ https://drive.google.com/file/d/1HEi2Ht01ttIho7VpA2I15057XXtLoymV/view?usp=drive
 
 ### 💼 Proof of 10+ User Wallet Interactions
 The following 10 unique wallet addresses have actively interacted with the AssetVault smart contract during testing and validation on the Stellar Testnet:
-1. `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW`
-2. `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL`
-3. `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5`
-4. `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH`
-5. `GCFA5DFZUK25P5Q3RWYI66CDN462MEDXYNTWAP7T5I4P4D3DBMADOHHV`
-6. `GCOANPGSDE3CZXUHYLNSUETZDSUXKWUTS72LV6LQJXTKNGJWHOOPX356`
-7. `GDP3BYV3KONYZIPRW4XEWIWMWNE3MGYN4T2YB3YRYMHSFGSOTO7TEQ3G`
-8. `GBD2BXI3UM55F6S6TK34ERZIIOEKMLWRARRFBWCIISBMRPOBZ6TSR6MJ`
-9. `GAZHMMGMMIIYO3USUGZNSI3B7GWANSHH2TADRXOWVP6AS4BMZQWU7G2M`
-10. `GAGXSEWNMDMDEF6NQOO53GT57NNPFR4NCD5GCOQ2UU3TZMQRHRJRZ4GE`
+
+| Name | Wallet ID (Stellar Testnet) |
+|---|---|
+| **Alex** | `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW` |
+| **Jordan** | `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL` |
+| **Taylor** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` |
+| **Sam** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` |
+| **Morgan** | `GCFA5DFZUK25P5Q3RWYI66CDN462MEDXYNTWAP7T5I4P4D3DBMADOHHV` |
+| **Casey** | `GCOANPGSDE3CZXUHYLNSUETZDSUXKWUTS72LV6LQJXTKNGJWHOOPX356` |
+| **Riley** | `GDP3BYV3KONYZIPRW4XEWIWMWNE3MGYN4T2YB3YRYMHSFGSOTO7TEQ3G` |
+| **Jamie** | `GBD2BXI3UM55F6S6TK34ERZIIOEKMLWRARRFBWCIISBMRPOBZ6TSR6MJ` |
+| **Avery** | `GAZHMMGMMIIYO3USUGZNSI3B7GWANSHH2TADRXOWVP6AS4BMZQWU7G2M` |
+| **Drew** | `GAGXSEWNMDMDEF6NQOO53GT57NNPFR4NCD5GCOQ2UU3TZMQRHRJRZ4GE` |
 
 ### 🗣️ Basic User Feedback Summary
-> "The asset registration process was very smooth and the real-time property valuation is an amazing feature!" - *Alex*
-> 
-> "Connecting the Freighter wallet was easy. I feel very secure having my physical assets tokenized on Soroban." - *Jordan*
->
-> "The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not." - *Taylor*
->
-> "Fast and clean user interface, love the dynamic dashboard analytics!" - *Sam*
+
+| Name | Wallet ID (Stellar Testnet) | User Feedback |
+|---|---|---|
+| **Alex** | `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW` | "The asset registration process was very smooth and the real-time property valuation is an amazing feature!" |
+| **Jordan** | `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL` | "Connecting the Freighter wallet was easy. I feel very secure having my physical assets tokenized on Soroban." |
+| **Taylor** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` | "The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not." |
+| **Sam** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` | "Fast and clean user interface, love the dynamic dashboard analytics!" |
 
 *(Note: A complete list of 20+ user feedback reviews has been compiled in a separate document. Please view the [USER_FEEDBACK.md](./USER_FEEDBACK.md) file in this repository for the full feedback report).*

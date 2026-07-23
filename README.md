@@ -2,7 +2,10 @@
 
 AssetVault is a decentralized physical asset tokenization and verification platform built on the Stellar blockchain (Soroban). It allows users to register real-world assets (Real Estate, Gold, etc.) securely on-chain, proving ownership and tracking transfer history through a cryptographic Digital Asset Passport.
 
-## Features
+---
+
+## 🌟 Features
+
 - **Asset Registration:** Upload documentation to IPFS and mint an on-chain record for a physical asset.
 - **Digital Asset Passport:** Verifiable QR code page to prove ownership and view transaction history.
 - **Buyer Offers & Deal Evaluation:** Receive simulated buyer offers and get instant evaluations (UNDERPRICED, FAIR DEAL, OVERPRICED) before securely transferring the asset via Soroban smart contracts.
@@ -10,17 +13,22 @@ AssetVault is a decentralized physical asset tokenization and verification platf
 - **Dynamic Property Valuation Engine:** Property valuations dynamically adjust in real-time based on state base rates, live macroeconomic data (Sensex), and precise area multipliers (Metro City, City, Town, Village).
 - **Built for Scale:** Responsive UI with real-time feedback and dynamic dashboard analytics.
 
-## Tech Stack
+---
+
+## 🛠️ Tech Stack
+
 - **Frontend:** Next.js 16, React 19, Vanilla CSS
 - **Backend:** Node.js, Express, IPFS (Pinata)
 - **Blockchain:** Stellar Testnet, Soroban Smart Contracts (Rust), Freighter Wallet
 
-## Getting Started
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- Rust & Soroban CLI
-- Freighter Wallet Browser Extension (Stellar Testnet)
+- **Node.js:** v18 or higher
+- **Rust & Soroban CLI:** Required for compiling smart contracts
+- **Freighter Wallet:** Browser extension configured for the Stellar Testnet
 
 ### 1. Backend Setup
 ```bash
@@ -44,38 +52,44 @@ cargo build
 cargo test
 ```
 
-## Author
-**Nandita**
-
 ---
 
-## Level 4 MVP Submission Details
+## 📝 Level 4 MVP Submission Details
 
 > **Note to Evaluator:** The following sections contain the required deliverables for the MVP submission.
 
 ### 🔗 Live Demo Link
 [https://asset-vault-lyart.vercel.app/](https://asset-vault-lyart.vercel.app/)
 
-
 ### 📜 Contract Deployment Address
-**Network:** Stellar Testnet
-**Contract Address:** `CAGQTTVO7ONOED664QHUP6WTMZLJEQOIAGSIIW6NKXCKXNQ3ERUKTO74`
+- **Network:** Stellar Testnet
+- **Contract Address:** `CAGQTTVO7ONOED664QHUP6WTMZLJEQOIAGSIIW6NKXCKXNQ3ERUKTO74`
 
 ### 📸 Screenshots
-#### 1. Product UI
+
+**1. Product UI**
+<br/>
 <img width="1482" height="718" alt="image" src="https://github.com/user-attachments/assets/8440e9bf-7e95-4790-a260-ebef64a996b6" />
+<br/>
 <img width="801" height="622" alt="image" src="https://github.com/user-attachments/assets/d60c33cd-2526-4c79-b818-91746dba8d01" />
+<br/>
 <img width="735" height="723" alt="image" src="https://github.com/user-attachments/assets/1cc80b11-4b78-4edb-a607-9d1c2770288b" />
 
-#### 2. Mobile Responsive Design
+**2. Mobile Responsive Design**
+<br/>
 <img width="383" height="588" alt="image" src="https://github.com/user-attachments/assets/856ef3dc-17a9-46d6-bf3d-d86e36eda12c" />
-#### 3. Analytics or Monitoring Setup
+
+**3. Analytics & Monitoring Setup**
+<br/>
 *(Insert your Analytics screenshot here)*
 
 ### 🎥 Demo Video Link
-https://drive.google.com/file/d/1HEi2Ht01ttIho7VpA2I15057XXtLoymV/view?usp=drive_link
+[Watch the Demo Video](https://drive.google.com/file/d/1HEi2Ht01ttIho7VpA2I15057XXtLoymV/view?usp=drive_link)
 
-### 💼 Proof of 10+ User Wallet Interactions
+---
+
+## 💼 Proof of 10+ User Wallet Interactions
+
 The following 10 unique wallet addresses have actively interacted with the AssetVault smart contract during testing and validation on the Stellar Testnet:
 
 | Name | Wallet ID (Stellar Testnet) |
@@ -91,7 +105,9 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 | **Avery** | `GAZHMMGMMIIYO3USUGZNSI3B7GWANSHH2TADRXOWVP6AS4BMZQWU7G2M` |
 | **Drew** | `GAGXSEWNMDMDEF6NQOO53GT57NNPFR4NCD5GCOQ2UU3TZMQRHRJRZ4GE` |
 
-### 🗣️ Basic User Feedback Summary
+---
+
+## 🗣️ Basic User Feedback Summary
 
 | Name | Wallet ID (Stellar Testnet) | User Feedback |
 |---|---|---|
@@ -100,4 +116,9 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 | **Taylor** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` | "The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not." |
 | **Sam** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` | "Fast and clean user interface, love the dynamic dashboard analytics!" |
 
-*(Note: A complete list of 20+ user feedback reviews has been compiled in a separate document. Please view the [USER_FEEDBACK.md](./USER_FEEDBACK.md) file in this repository for the full feedback report).*
+> **Note:** A complete list of 20+ user feedback reviews has been compiled in a separate document. Please view the [USER_FEEDBACK.md](./USER_FEEDBACK.md) file in this repository for the full feedback report.
+
+---
+
+## ✍️ Author
+**Nandita Sahu**

@@ -141,7 +141,8 @@ cargo test
 
 **3. Offers & Deal Evaluation**
 <br/>
-<img width="735" height="723" alt="Deal Evaluation" src="https://github.com/user-attachments/assets/1cc80b11-4b78-4edb-a607-9d1c2770288b" />
+<img width="506" height="663" alt="image" src="https://github.com/user-attachments/assets/a4a12403-bbcd-4f7c-a541-d5d8504b81d3" />
+
 <br/><br/>
 
 **4. Mobile Responsive Design**

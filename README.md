@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>🔐 AssetVault</h1>
+<h1> AssetVault</h1>
 
 <p><strong>Decentralized Physical Asset Tokenization on Stellar Soroban</strong></p>
 
@@ -13,7 +13,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Features](#-features)
 2. [Tech Stack](#️-tech-stack)
@@ -25,21 +25,21 @@
 
 ---
 
-## 🌟 Features
+##  Features
 
 | Feature | Description |
 |---|---|
-| 🏠 **Asset Registration** | Upload documentation to IPFS and mint an on-chain record for a physical asset |
-| 🪪 **Digital Asset Passport** | Verifiable QR code page to prove ownership and view full transaction history |
-| 💰 **Buyer Offers & Deal Evaluation** | Receive buyer offers with instant AI evaluation: `UNDERPRICED`, `FAIR DEAL`, or `OVERPRICED` |
-| 📈 **Live Market Web Scraping** | Real-time 24K Gold rates and BSE Sensex index scraped using `axios` + `cheerio` |
-| 🏗️ **Dynamic Property Valuation** | Valuations adjust dynamically based on state rates, Sensex data & area multipliers |
-| 📊 **Analytics Dashboard** | Web traffic monitoring & platform metrics with interactive charts |
-| 📱 **Fully Responsive** | Premium dark UI that works seamlessly on desktop and mobile |
+|  **Asset Registration** | Upload documentation to IPFS and mint an on-chain record for a physical asset |
+|  **Digital Asset Passport** | Verifiable QR code page to prove ownership and view full transaction history |
+|  **Buyer Offers & Deal Evaluation** | Receive buyer offers with instant AI evaluation: `UNDERPRICED`, `FAIR DEAL`, or `OVERPRICED` |
+|  **Live Market Web Scraping** | Real-time 24K Gold rates and BSE Sensex index scraped using `axios` + `cheerio` |
+|  **Dynamic Property Valuation** | Valuations adjust dynamically based on state rates, Sensex data & area multipliers |
+|  **Analytics Dashboard** | Web traffic monitoring & platform metrics with interactive charts |
+|  **Fully Responsive** | Premium dark UI that works seamlessly on desktop and mobile |
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -51,7 +51,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -111,7 +111,7 @@ cargo test
 
 ## 📝 Level 4 MVP Submission Details
 
-> **📢 Note to Evaluator:** The following sections contain all required deliverables for the MVP submission.
+> ** Note to Evaluator:** The following sections contain all required deliverables for the MVP submission.
 
 ### 🔗 Live Demo
 
@@ -120,14 +120,14 @@ cargo test
 | **Live App** | [https://asset-vault-mocha.vercel.app/](https://asset-vault-mocha.vercel.app/) |
 | **Demo Video** |https://drive.google.com/file/d/1rn2tqjGIhc_Fa2gKas1EAwo_qQMDOzBj/view?usp=sharing |
 
-### 📜 Smart Contract Deployment
+### Smart Contract Deployment
 
 | Detail | Value |
 |---|---|
 | **Network** | Stellar Testnet |
 | **Contract ID** | `CAGQTTVO7ONOED664QHUP6WTMZLJEQOIAGSIIW6NKXCKXNQ3ERUKTO74` |
 
-### 📸 Screenshots
+###  Screenshots
 
 **1. Product UI — Main Dashboard**
 <br/>
@@ -156,7 +156,7 @@ cargo test
 
 ---
 
-## 💼 Proof of 10+ User Wallet Interactions
+## Proof of 10+ User Wallet Interactions
 
 The following 10 unique wallet addresses have actively interacted with the AssetVault smart contract on the Stellar Testnet:
 
@@ -175,7 +175,7 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 
 ---
 
-## 🗣️ Basic User Feedback Summary
+##  Basic User Feedback Summary
 
 | # | Name | Wallet ID | Feedback |
 |---|---|---|---|
@@ -190,7 +190,7 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 
 ---
 
-## ✍️ Author
+## Author
 
 <div align="center">
 

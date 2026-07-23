@@ -185,9 +185,14 @@ export default function Dashboard() {
 
       <div className="animate-fade-in stagger-2" style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2 style={{ fontSize: '2.5rem' }}>My Dashboard</h2>
-        <Link href="/register">
-          <button className="btn btn-primary">+ Register New Asset</button>
-        </Link>
+        <div style={{ display: 'flex', gap: '1rem' }}>
+          <Link href="/analytics">
+            <button className="btn btn-outline">View Analytics</button>
+          </Link>
+          <Link href="/register">
+            <button className="btn btn-primary">+ Register New Asset</button>
+          </Link>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 animate-fade-in stagger-3" style={{ marginBottom: '4rem' }}>

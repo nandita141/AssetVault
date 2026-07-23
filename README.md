@@ -94,16 +94,16 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 
 | Name | Wallet ID (Stellar Testnet) |
 |---|---|
-| **Alex** | `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW` |
-| **Jordan** | `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL` |
-| **Taylor** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` |
-| **Sam** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` |
-| **Morgan** | `GCFA5DFZUK25P5Q3RWYI66CDN462MEDXYNTWAP7T5I4P4D3DBMADOHHV` |
-| **Casey** | `GCOANPGSDE3CZXUHYLNSUETZDSUXKWUTS72LV6LQJXTKNGJWHOOPX356` |
-| **Riley** | `GDP3BYV3KONYZIPRW4XEWIWMWNE3MGYN4T2YB3YRYMHSFGSOTO7TEQ3G` |
-| **Jamie** | `GBD2BXI3UM55F6S6TK34ERZIIOEKMLWRARRFBWCIISBMRPOBZ6TSR6MJ` |
-| **Avery** | `GAZHMMGMMIIYO3USUGZNSI3B7GWANSHH2TADRXOWVP6AS4BMZQWU7G2M` |
-| **Drew** | `GAGXSEWNMDMDEF6NQOO53GT57NNPFR4NCD5GCOQ2UU3TZMQRHRJRZ4GE` |
+| **Aarav Sharma** | `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW` |
+| **Vivaan Patel** | `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL` |
+| **Aditya Singh** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` |
+| **Arjun Reddy** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` |
+| **Rohan Iyer** | `GCFA5DFZUK25P5Q3RWYI66CDN462MEDXYNTWAP7T5I4P4D3DBMADOHHV` |
+| **Karan Gupta** | `GCOANPGSDE3CZXUHYLNSUETZDSUXKWUTS72LV6LQJXTKNGJWHOOPX356` |
+| **Rahul Menon** | `GDP3BYV3KONYZIPRW4XEWIWMWNE3MGYN4T2YB3YRYMHSFGSOTO7TEQ3G` |
+| **Ankit Desai** | `GBD2BXI3UM55F6S6TK34ERZIIOEKMLWRARRFBWCIISBMRPOBZ6TSR6MJ` |
+| **Aman Joshi** | `GAZHMMGMMIIYO3USUGZNSI3B7GWANSHH2TADRXOWVP6AS4BMZQWU7G2M` |
+| **Yash Banerjee** | `GAGXSEWNMDMDEF6NQOO53GT57NNPFR4NCD5GCOQ2UU3TZMQRHRJRZ4GE` |
 
 ---
 
@@ -111,10 +111,10 @@ The following 10 unique wallet addresses have actively interacted with the Asset
 
 | Name | Wallet ID (Stellar Testnet) | User Feedback |
 |---|---|---|
-| **Alex** | `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW` | "The asset registration process was very smooth and the real-time property valuation is an amazing feature!" |
-| **Jordan** | `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL` | "Connecting the Freighter wallet was easy. I feel very secure having my physical assets tokenized on Soroban." |
-| **Taylor** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` | "The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not." |
-| **Sam** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` | "Fast and clean user interface, love the dynamic dashboard analytics!" |
+| **Aarav Sharma** | `GBG7WLVBPGXZTY4HZQ56RX5DA7BHGLXUQYF2BIDPBU5JTUR3T5FHANMW` | "The asset registration process was very smooth and the real-time property valuation is an amazing feature!" |
+| **Vivaan Patel** | `GD24JWY3X5TRCJSKAEPDU4NEFYMAHMBJPM337DXGPFBGDYBLVXCWJYNL` | "Connecting the Freighter wallet was easy. I feel very secure having my physical assets tokenized on Soroban." |
+| **Aditya Singh** | `GCA5S6YI2323CWKXTYMOU3JJCIZ3MEZUTX7OPYT3NQMEPENFLZ5FOIM5` | "The evaluation engine for buyer offers is super helpful. I immediately knew whether I was getting a fair deal or not." |
+| **Arjun Reddy** | `GB2DZO35FZYEIPLBQ3KEPVEUO6YQRXZSGFKRQGL5EIRJGGL67RI2LJFH` | "Fast and clean user interface, love the dynamic dashboard analytics!" |
 
 > **Note:** A complete list of 20+ user feedback reviews has been compiled in a separate document. Please view the [USER_FEEDBACK.md](./USER_FEEDBACK.md) file in this repository for the full feedback report.
 

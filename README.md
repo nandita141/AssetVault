@@ -152,7 +152,7 @@ cargo test
 
 **5. Analytics & Monitoring Dashboard**
 <br/>
-*(Insert your Analytics screenshot here)*
+<img width="587" height="706" alt="image" src="https://github.com/user-attachments/assets/38f0bacf-a80a-4ad1-8850-5cf5f1c9ee23" />
 
 ---
 

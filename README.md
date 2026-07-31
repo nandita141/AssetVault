@@ -150,7 +150,8 @@ https://docs.google.com/spreadsheets/d/1CdGluTmO3Ywmk8rf93GdqinQYTn5EmVT/edit?us
 
 **5. Analytics & Monitoring Dashboard**
 <br/>
-*(Insert your Analytics screenshot here)*
+<img width="761" height="864" alt="image" src="https://github.com/user-attachments/assets/1160e35d-245d-490e-a238-13bb66916559" />
+
 
 ---
 

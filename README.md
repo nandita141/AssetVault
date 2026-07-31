@@ -107,11 +107,7 @@ cargo build
 cargo test
 ```
 
----
 
-## 📝 Level 4 MVP Submission Details
-
-> **📢 Note to Evaluator:** The following sections contain all required deliverables for the MVP submission.
 
 ### 🔗 Live Demo
 

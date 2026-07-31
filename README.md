@@ -123,7 +123,7 @@ cargo test
 | **Network** | Stellar Testnet |
 | **Contract ID** | `CAGQTTVO7ONOED664QHUP6WTMZLJEQOIAGSIIW6NKXCKXNQ3ERUKTO74` |
 
-#PDF
+##PDF
 https://docs.google.com/spreadsheets/d/1CdGluTmO3Ywmk8rf93GdqinQYTn5EmVT/edit?usp=drive_link&ouid=101224133154138509879&rtpof=true&sd=true
 
 ### 📸 Screenshots
@@ -218,7 +218,7 @@ The following 50 unique wallet addresses have actively interacted with the Asset
 
 User feedback was collected through two channels to maximize user convenience: directly via our native **in-app feedback UI** and externally through our **Official Google Form**. Responses provided in the app are automatically synced with the Google Form.
 
-https://docs.google.com/spreadsheets/d/1CdGluTmO3Ywmk8rf93GdqinQYTn5EmVT/edit?usp=sharing&ouid=101224133154138509879&rtpof=true&sd=true
+https://docs.google.com/spreadsheets/d/1bZ7AVXg4_Nh36OWswCMJv3xkRg-swKSE_sNsMC4yUeY/edit?usp=sharing
 
 | User Name | User Email | User Wallet Address | User Feedback | Commit ID |
 |---|---|---|---|---|

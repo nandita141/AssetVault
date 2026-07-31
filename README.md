@@ -123,6 +123,9 @@ cargo test
 | **Network** | Stellar Testnet |
 | **Contract ID** | `CAGQTTVO7ONOED664QHUP6WTMZLJEQOIAGSIIW6NKXCKXNQ3ERUKTO74` |
 
+#PDF
+https://docs.google.com/spreadsheets/d/1CdGluTmO3Ywmk8rf93GdqinQYTn5EmVT/edit?usp=drive_link&ouid=101224133154138509879&rtpof=true&sd=true
+
 ### 📸 Screenshots
 
 **1. Product UI — Main Dashboard**

@@ -218,7 +218,7 @@ The following 50 unique wallet addresses have actively interacted with the Asset
 
 User feedback was collected through two channels to maximize user convenience: directly via our native **in-app feedback UI** and externally through our **Official Google Form**. Responses provided in the app are automatically synced with the Google Form.
 
-> https://docs.google.com/spreadsheets/d/1QKfwiiCPcvxVQ3XlejyyeDBrDcL0OSGe/edit?usp=drive_link&ouid=101224133154138509879&rtpof=true&sd=true
+https://docs.google.com/spreadsheets/d/1CdGluTmO3Ywmk8rf93GdqinQYTn5EmVT/edit?usp=sharing&ouid=101224133154138509879&rtpof=true&sd=true
 
 | User Name | User Email | User Wallet Address | User Feedback | Commit ID |
 |---|---|---|---|---|
